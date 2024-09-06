@@ -1,7 +1,7 @@
-FROM centos:8
+FROM rockylinux:8
 
 # Install necessary packages
-RUN yum install -y httpd wget unzip zip
+RUN dnf install -y httpd wget unzip zip
 
 # Add and unzip the template
 ADD https://www.tooplate.com/zip-templates/2133_moso_interior.zip /var/www/html/
@@ -13,8 +13,9 @@ RUN unzip 2133_moso_interior.zip && \
 # Run the Apache HTTP server in the foreground
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 
-# Expose ports 80 for HTTP and 22 for SSH (if needed)
-EXPOSE 80 22
+# Expose port 80
+EXPOSE 80
+
 
 
 
