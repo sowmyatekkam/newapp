@@ -1,4 +1,4 @@
-FROM centos:8-stream
+FROM centos:8
 
 # Install necessary packages
 RUN yum install -y httpd wget unzip zip
